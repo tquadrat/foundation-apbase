@@ -1,5 +1,5 @@
-# tquadrat *Foundation Library*
-## `foundation-apbase`
+The base for my annotation processors.
+
 ### Documentation
 
-- [Javadoc Reference](https://htmlpreview.github.io/?https://github.com/tquadrat/foundation-apbase/blob/master/javadoc/index.html)
+- [Javadoc Reference](https://tquadrat.github.io/foundation-apbase/javadoc/index.html)
