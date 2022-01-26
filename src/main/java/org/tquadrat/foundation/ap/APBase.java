@@ -23,7 +23,9 @@ import static javax.tools.Diagnostic.Kind.ERROR;
 import static javax.tools.Diagnostic.Kind.NOTE;
 import static javax.tools.Diagnostic.Kind.WARNING;
 import static org.apiguardian.api.API.Status.STABLE;
+import static org.tquadrat.foundation.lang.DebugOutput.ifDebug;
 import static org.tquadrat.foundation.lang.Objects.isNull;
+import static org.tquadrat.foundation.lang.Objects.requireNonNullArgument;
 import static org.tquadrat.foundation.lang.Objects.requireNotEmptyArgument;
 import static org.tquadrat.foundation.util.StringUtils.format;
 
@@ -62,13 +64,12 @@ import org.tquadrat.foundation.annotation.ClassVersion;
  *  Library.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: APBase.java 933 2021-07-03 13:32:17Z tquadrat $
+ *  @version $Id: APBase.java 997 2022-01-26 14:55:05Z tquadrat $
  *  @since 0.1.0
  *
  *  @UMLGraph.link
  */
-@SuppressWarnings( {"ClassWithTooManyFields", "ClassWithTooManyMethods", "AbstractClassNeverImplemented"} )
-@ClassVersion( sourceVersion = "$Id: APBase.java 933 2021-07-03 13:32:17Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: APBase.java 997 2022-01-26 14:55:05Z tquadrat $" )
 @API( status = STABLE, since = "0.1.0" )
 public abstract class APBase implements Processor, APHelper
 {
@@ -112,13 +113,13 @@ public abstract class APBase implements Processor, APHelper
      *  The message that indicates that more than one element is annotated with
      *  the given annotation: {@value}.
      */
-    public static final String MSG_MultipleElements = "%s: Multiple elements are annotated with '%s'";
+    public static final String MSG_MultipleElements = "%1$s: Multiple elements are annotated with '%2$s'";
 
     /**
      *  The message that indicates that more than one field is annotated with
      *  the given annotation: {@value}.
      */
-    public static final String MSG_MultipleFields = "%s: Multiple fields are annotated with '%s'";
+    public static final String MSG_MultipleFields = "%1$s: Multiple fields are annotated with '%2$s'";
 
     /**
      *  The message that indicates that a String constant is required:
@@ -421,10 +422,9 @@ public abstract class APBase implements Processor, APHelper
     public abstract boolean process( final Set<? extends TypeElement> annotations, final RoundEnvironment roundEnvironment );
 
     /**
-     *  Retrieves the field that is annotated with the given annotation.
+     *  <p>{@summary Retrieves the field that is annotated with the given
+     *  annotation.} The expectation is that there is just one
      *
-     *  @param  annotations The annotation, as set to
-     *      {@link #process(Set, RoundEnvironment)}.
      *  @param  roundEnvironment    The environment for information about the
      *      current and prior round as set to
      *      {@link #process(Set, RoundEnvironment)}.
@@ -433,64 +433,68 @@ public abstract class APBase implements Processor, APHelper
      *      {@link Optional}
      *      that holds the field.
      *  @throws IllegalAnnotationError  The annotation is invalid.
+     *  @throws CodeGenerationError Multiple fields are annotated with the
+     *      given annotation.
      */
-    protected final Optional<VariableElement> retrieveAnnotatedField( final Collection<? extends TypeElement> annotations, final RoundEnvironment roundEnvironment, final Class<? extends Annotation> annotationClass ) throws IllegalAnnotationError
+    protected final Optional<VariableElement> retrieveAnnotatedField( final RoundEnvironment roundEnvironment, final Class<? extends Annotation> annotationClass ) throws IllegalAnnotationError
     {
+        requireNonNullArgument( annotationClass, "annotationClass" );
+        ifDebug( c -> "annotationClass: %s".formatted( ((Class<?>) c [0]).getName() ), annotationClass );
         Optional<VariableElement> retValue = Optional.empty();
+        String errorMessage = null;
 
-        if( annotations.stream()
-            .map( TypeElement::getQualifiedName )
-            .map( Object::toString )
-            .anyMatch( n -> n.equals( annotationClass.getName() ) ) )
+        ifDebug( c -> "annotationClass '%s' is in annotations".formatted( ((Class<?>) c [0]).getName() ), annotationClass );
+        VariableElement lastElement = null;
+        var isInError = false;
+        ScanLoop: for( final var element : requireNonNullArgument( roundEnvironment, "roundEnvironment" ).getElementsAnnotatedWith( annotationClass ) )
         {
-            VariableElement lastElement = null;
-            var isInError = false;
-            ScanLoop: for( final var element : roundEnvironment.getElementsAnnotatedWith( annotationClass ) )
+            if( element instanceof VariableElement variableElement )
             {
-                if( element instanceof VariableElement variableElement )
+                if( variableElement.getKind() == ElementKind.FIELD )
                 {
-                    if( variableElement.getKind() == ElementKind.FIELD )
+                    if( isNull( lastElement ) )
                     {
-                        if( isNull( lastElement ) )
+                        lastElement = variableElement;
+                        final var value = variableElement.getConstantValue();
+                        if( value instanceof String )
                         {
-                            lastElement = variableElement;
-                            final var value = variableElement.getConstantValue();
-                            if( value instanceof String )
-                            {
-                                retValue = Optional.of( variableElement );
-                            }
-                            else
-                            {
-                                isInError = true;
-                                printMessage( ERROR, format( MSG_StringConstantRequired, element.getSimpleName().toString() ), element );
-                                break ScanLoop;
-                            }
+                            retValue = Optional.of( variableElement );
                         }
                         else
                         {
-                            if( !isInError )
-                            {
-                                isInError = true;
-                                printMessage( ERROR, format( MSG_MultipleFields, variableElement.getSimpleName().toString(), annotationClass.getSimpleName() ), lastElement );
-                            }
-                            printMessage( ERROR, format( MSG_MultipleFields, variableElement.getSimpleName().toString(), annotationClass.getSimpleName() ), element );
+                            isInError = true;
+                            errorMessage = format( MSG_StringConstantRequired, element.getSimpleName().toString() );
+                            printMessage( ERROR, errorMessage, element );
+                            break ScanLoop;
                         }
                     }
                     else
                     {
-                        printMessage( ERROR, format( MSG_AnnotationOnlyForFields, variableElement.getSimpleName().toString(), annotationClass.getSimpleName() ), element );
-                        throw new IllegalAnnotationError( MSG_FieldsOnly, annotationClass );
+                        if( !isInError )
+                        {
+                            isInError = true;
+                            errorMessage = format( MSG_MultipleFields, variableElement.getSimpleName().toString(), annotationClass.getSimpleName() );
+                            printMessage( ERROR, errorMessage, lastElement );
+                        }
+
+                        //---* Print the other elements, too *-----------------
+                        printMessage( ERROR, format( MSG_MultipleFields, variableElement.getSimpleName().toString(), annotationClass.getSimpleName() ), element );
                     }
                 }
                 else
                 {
-                    isInError = true;
-                    printMessage( ERROR, format( MSG_IllegalAnnotationUse, element.getSimpleName().toString(), annotationClass.getSimpleName() ), element );
-                    break ScanLoop;
+                    printMessage( ERROR, format( MSG_AnnotationOnlyForFields, variableElement.getSimpleName().toString(), annotationClass.getSimpleName() ), element );
+                    throw new IllegalAnnotationError( MSG_FieldsOnly, annotationClass );
                 }
-            }   //  ScanLoop:
-            if( isInError ) throw new IllegalAnnotationError( annotationClass );
-        }
+            }
+            else
+            {
+                errorMessage = format( MSG_IllegalAnnotationUse, element.getSimpleName().toString(), annotationClass.getSimpleName() );
+                printMessage( ERROR, errorMessage, element );
+                throw new IllegalAnnotationError( errorMessage );
+            }
+        }   //  ScanLoop:
+        if( isInError ) throw new CodeGenerationError( errorMessage );
 
         //---* Done *----------------------------------------------------------
         return retValue;

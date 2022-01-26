@@ -17,8 +17,12 @@
 
 package org.tquadrat.foundation.ap;
 
+import static java.lang.reflect.Proxy.isProxyClass;
 import static org.apiguardian.api.API.Status.STABLE;
+import static org.tquadrat.foundation.lang.CommonConstants.EMPTY_STRING;
+import static org.tquadrat.foundation.lang.DebugOutput.ifDebug;
 import static org.tquadrat.foundation.lang.Objects.requireNonNullArgument;
+import static org.tquadrat.foundation.util.StringUtils.format;
 
 import javax.annotation.processing.Messager;
 import javax.annotation.processing.ProcessingEnvironment;
@@ -32,6 +36,7 @@ import java.lang.annotation.Annotation;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.Set;
+import java.util.StringJoiner;
 
 import org.apiguardian.api.API;
 import org.tquadrat.foundation.annotation.ClassVersion;
@@ -40,13 +45,12 @@ import org.tquadrat.foundation.annotation.ClassVersion;
  *  The specification for a set of helpers for annotation processing.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: APHelper.java 944 2021-12-21 21:56:24Z tquadrat $
+ *  @version $Id: APHelper.java 997 2022-01-26 14:55:05Z tquadrat $
  *  @since 0.1.0
  *
  *  @UMLGraph.link
  */
-@SuppressWarnings( "InterfaceNeverImplemented" )
-@ClassVersion( sourceVersion = "$Id: APHelper.java 944 2021-12-21 21:56:24Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: APHelper.java 997 2022-01-26 14:55:05Z tquadrat $" )
 @API( status = STABLE, since = "0.1.0" )
 public interface APHelper extends Messager, ProcessingEnvironment
 {
@@ -84,10 +88,43 @@ public interface APHelper extends Messager, ProcessingEnvironment
      */
     public default Optional<? extends AnnotationMirror> getAnnotationMirror( final Element element, final Class<? extends Annotation> annotationClass )
     {
-        final var annotationClassName = requireNonNullArgument( annotationClass, "annotationClass" ).getName();
+        final var isProxyClass = isProxyClass( requireNonNullArgument( annotationClass, "annotationClass" ) );
+        ifDebug( a -> "annotationClass = %s".formatted( ((Class<?>) a [0]).getName() ), annotationClass );
+        final String annotationClassName;
+        if( isProxyClass )
+        {
+            final var interfaces = annotationClass.getInterfaces();
+            ifDebug( interfaces.length > 1, i ->
+            {
+                final var joiner = new StringJoiner( ", ", "annotation interface: ", EMPTY_STRING );
+                //noinspection SuspiciousArrayCast
+                for( final var c : ((Class<?> []) i) )
+                {
+                    joiner.add( c.getName() );
+                }
+                return joiner.toString();
+            }, (Object []) interfaces );
+            if( interfaces.length != 1 )
+                throw new AnnotationProcessingError( format( "annotationClass proxy '%s' implements more than one interface" ) );
+            annotationClassName = interfaces [0].getName();
+        }
+        else
+        {
+            annotationClassName = requireNonNullArgument( annotationClass, "annotationClass" ).getName();
+        }
+        ifDebug( "effective annotationClassName = %s"::formatted, annotationClassName );
         final var retValue = requireNonNullArgument( element, "element" ).getAnnotationMirrors().stream()
             .filter( m -> m.getAnnotationType().toString().equals( annotationClassName ) )
             .findFirst();
+        ifDebug( retValue.isEmpty(), e ->
+        {
+            final var joiner = new StringJoiner( ", ", "annotationMirrors: ", EMPTY_STRING );
+            for( final var mirror : ((Element) e [0]).getAnnotationMirrors() )
+            {
+                joiner.add( mirror.getAnnotationType().toString() );
+            }
+            return joiner.toString();
+        }, element );
 
         //---* Done *----------------------------------------------------------
         return retValue;

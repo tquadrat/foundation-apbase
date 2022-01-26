@@ -118,10 +118,10 @@ loadScripts(document, 'script');</script>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Messager.html" title="class or interface in javax.annotation.processing" class="external-link">Messager</a></code>, <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html" title="class or interface in javax.annotation.processing" class="external-link">ProcessingEnvironment</a></code>, <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Processor.html" title="class or interface in javax.annotation.processing" class="external-link">Processor</a></code>, <code><a href="APHelper.html" title="interface in org.tquadrat.foundation.ap">APHelper</a></code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="annotations"><a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/annotation/ClassVersion.html" title="class or interface in org.tquadrat.foundation.annotation" class="external-link">@ClassVersion</a>(<a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/annotation/ClassVersion.html#sourceVersion()" title="class or interface in org.tquadrat.foundation.annotation" class="external-link">sourceVersion</a>="$Id: APBase.java 933 2021-07-03 13:32:17Z tquadrat $")
+<div class="type-signature"><span class="annotations"><a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/annotation/ClassVersion.html" title="class or interface in org.tquadrat.foundation.annotation" class="external-link">@ClassVersion</a>(<a href="https://tquadrat.github.io/foundation-base/javadoc/org.tquadrat.foundation.base/org/tquadrat/foundation/annotation/ClassVersion.html#sourceVersion()" title="class or interface in org.tquadrat.foundation.annotation" class="external-link">sourceVersion</a>="$Id: APBase.java 997 2022-01-26 14:55:05Z tquadrat $")
 <a href="https://apiguardian-team.github.io/apiguardian/docs/current/api/org/apiguardian/api/API.html" title="class or interface in org.apiguardian.api" class="external-link">@API</a>(<a href="https://apiguardian-team.github.io/apiguardian/docs/current/api/org/apiguardian/api/API.html#status()" title="class or interface in org.apiguardian.api" class="external-link">status</a>=<a href="https://apiguardian-team.github.io/apiguardian/docs/current/api/org/apiguardian/api/API.Status.html#STABLE" title="class or interface in org.apiguardian.api" class="external-link">STABLE</a>,
      <a href="https://apiguardian-team.github.io/apiguardian/docs/current/api/org/apiguardian/api/API.html#since()" title="class or interface in org.apiguardian.api" class="external-link">since</a>="0.1.0")
-</span><span class="modifiers">public abstract class </span><span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-70">APBase</a></span>
+</span><span class="modifiers">public abstract class </span><span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-72">APBase</a></span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Processor.html" title="class or interface in javax.annotation.processing" class="external-link">Processor</a>, <a href="APHelper.html" title="interface in org.tquadrat.foundation.ap">APHelper</a></span></div>
 <div class="block">The abstract base class for annotation processors for the Foundation
@@ -130,7 +130,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <dt><span class="simpleTagLabel">Author:</span></dt>
   <dd>Thomas Thrien (<a href="mailto:thomas.thrien@tquadrat.org">thomas.thrien@tquadrat.org</a>)</dd>
 <dt>Version:</dt>
-<dd>$Id: APBase.java 933 2021-07-03 13:32:17Z tquadrat $</dd>
+<dd>$Id: APBase.java 997 2022-01-26 14:55:05Z tquadrat $</dd>
 <dt>Since:</dt>
 <dd>0.1.0</dd>
 
@@ -238,13 +238,13 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <div class="col-second odd-row-color"><code><a href="#MSG_MultipleElements" class="member-name-link">MSG_MultipleElements</a></code></div>
 <div class="col-last odd-row-color">
 <div class="block">The message that indicates that more than one element is annotated with
-  the given annotation: "%s: Multiple elements are annotated with \'%s\'".</div>
+  the given annotation: "%1$s: Multiple elements are annotated with \'%2$s\'".</div>
 </div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#MSG_MultipleFields" class="member-name-link">MSG_MultipleFields</a></code></div>
 <div class="col-last even-row-color">
 <div class="block">The message that indicates that more than one field is annotated with
-  the given annotation: "%s: Multiple fields are annotated with \'%s\'".</div>
+  the given annotation: "%1$s: Multiple fields are annotated with \'%2$s\'".</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#MSG_StringConstantRequired" class="member-name-link">MSG_StringConstantRequired</a></code></div>
@@ -377,11 +377,11 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/RoundEnvironment.html" title="class or interface in javax.annotation.processing" class="external-link">RoundEnvironment</a>&nbsp;roundEnvironment)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"></div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/VariableElement.html" title="class or interface in javax.lang.model.element" class="external-link">VariableElement</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#retrieveAnnotatedField(java.util.Collection,javax.annotation.processing.RoundEnvironment,java.lang.Class)" class="member-name-link">retrieveAnnotatedField</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/TypeElement.html" title="class or interface in javax.lang.model.element" class="external-link">TypeElement</a>&gt;&nbsp;annotations,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/RoundEnvironment.html" title="class or interface in javax.annotation.processing" class="external-link">RoundEnvironment</a>&nbsp;roundEnvironment,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#retrieveAnnotatedField(javax.annotation.processing.RoundEnvironment,java.lang.Class)" class="member-name-link">retrieveAnnotatedField</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/RoundEnvironment.html" title="class or interface in javax.annotation.processing" class="external-link">RoundEnvironment</a>&nbsp;roundEnvironment,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>&gt;&nbsp;annotationClass)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Retrieves the field that is annotated with the given annotation.</div>
+<div class="block">Retrieves the field that is annotated with the given
+  annotation.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#retrieveInterfaces(javax.lang.model.element.TypeElement,java.util.Set)" class="member-name-link">retrieveInterfaces</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/TypeElement.html" title="class or interface in javax.lang.model.element" class="external-link">TypeElement</a>&nbsp;typeElement,
@@ -416,7 +416,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="PACKAGE_NAME">
 <h3>PACKAGE_NAME</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-82">PACKAGE_NAME</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-83">PACKAGE_NAME</a></span></div>
 <div class="block">The name for sub-package that holds the generated configuration bean
   classes: "generated".</div>
 <dl class="notes">
@@ -432,7 +432,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="ADD_DEBUG_OUTPUT">
 <h3>ADD_DEBUG_OUTPUT</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-88">ADD_DEBUG_OUTPUT</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-89">ADD_DEBUG_OUTPUT</a></span></div>
 <div class="block">The name of the annotation processor option that enables the emission
   of some debug information into the generated code: "org.tquadrat.foundation.ap.addDebugOutput".</div>
 <dl class="notes">
@@ -448,7 +448,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="MAVEN_GOAL">
 <h3>MAVEN_GOAL</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-94">MAVEN_GOAL</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-95">MAVEN_GOAL</a></span></div>
 <div class="block">The name of the annotation processor option for the currently active
   Maven goal: "org.tquadrat.foundation.ap.maven.goal".</div>
 <dl class="notes">
@@ -464,7 +464,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="MSG_AnnotationOnlyForFields">
 <h3>MSG_AnnotationOnlyForFields</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-99">MSG_AnnotationOnlyForFields</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-100">MSG_AnnotationOnlyForFields</a></span></div>
 <div class="block">Message: "%s: Only fields may be annotated with \'%s\'".</div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -479,7 +479,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="MSG_FieldsOnly">
 <h3>MSG_FieldsOnly</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-104">MSG_FieldsOnly</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-105">MSG_FieldsOnly</a></span></div>
 <div class="block">Message: "Only allowed for fields".</div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -494,7 +494,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="MSG_IllegalAnnotationUse">
 <h3>MSG_IllegalAnnotationUse</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-109">MSG_IllegalAnnotationUse</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-110">MSG_IllegalAnnotationUse</a></span></div>
 <div class="block">The message that indicates the illegal use of an annotation: "%s: Illegal use of annotation \'%s\'".</div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -509,9 +509,9 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="MSG_MultipleElements">
 <h3>MSG_MultipleElements</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-115">MSG_MultipleElements</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-116">MSG_MultipleElements</a></span></div>
 <div class="block">The message that indicates that more than one element is annotated with
-  the given annotation: "%s: Multiple elements are annotated with \'%s\'".</div>
+  the given annotation: "%1$s: Multiple elements are annotated with \'%2$s\'".</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -525,9 +525,9 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="MSG_MultipleFields">
 <h3>MSG_MultipleFields</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-121">MSG_MultipleFields</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-122">MSG_MultipleFields</a></span></div>
 <div class="block">The message that indicates that more than one field is annotated with
-  the given annotation: "%s: Multiple fields are annotated with \'%s\'".</div>
+  the given annotation: "%1$s: Multiple fields are annotated with \'%2$s\'".</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -541,7 +541,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="MSG_StringConstantRequired">
 <h3>MSG_StringConstantRequired</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-127">MSG_StringConstantRequired</a></span></div>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-128">MSG_StringConstantRequired</a></span></div>
 <div class="block">The message that indicates that a String constant is required:
   "\'%s\' needs to be a String constant".</div>
 <dl class="notes">
@@ -557,7 +557,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="m_AddDebugOutput">
 <h3>m_AddDebugOutput</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-136">m_AddDebugOutput</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-137">m_AddDebugOutput</a></span></div>
 <div class="block">The flag that indicates whether some debug information should be
   emitted to the generated code.</div>
 </section>
@@ -565,28 +565,28 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="m_ElementUtils">
 <h3>m_ElementUtils</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/util/Elements.html" title="class or interface in javax.lang.model.util" class="external-link">Elements</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-141">m_ElementUtils</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/util/Elements.html" title="class or interface in javax.lang.model.util" class="external-link">Elements</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-142">m_ElementUtils</a></span></div>
 <div class="block">The implementation of some utility methods for operating on elements.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="m_Environment">
 <h3>m_Environment</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html" title="class or interface in javax.annotation.processing" class="external-link">ProcessingEnvironment</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-146">m_Environment</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html" title="class or interface in javax.annotation.processing" class="external-link">ProcessingEnvironment</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-147">m_Environment</a></span></div>
 <div class="block">The processing environment.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="m_Filer">
 <h3>m_Filer</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Filer.html" title="class or interface in javax.annotation.processing" class="external-link">Filer</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-151">m_Filer</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Filer.html" title="class or interface in javax.annotation.processing" class="external-link">Filer</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-152">m_Filer</a></span></div>
 <div class="block">The filer that is used to create new source, class, or auxiliary files.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="m_IsMavenActive">
 <h3>m_IsMavenActive</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-157">m_IsMavenActive</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-158">m_IsMavenActive</a></span></div>
 <div class="block">A flag that indicates whether Maven is active. This is guessed by the
   existence of the option <code><a href="#MAVEN_GOAL">"org.tquadrat.foundation.ap.maven.goal"</a></code>.</div>
 </section>
@@ -594,7 +594,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="m_Messager">
 <h3>m_Messager</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Messager.html" title="class or interface in javax.annotation.processing" class="external-link">Messager</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-164">m_Messager</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Messager.html" title="class or interface in javax.annotation.processing" class="external-link">Messager</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-165">m_Messager</a></span></div>
 <div class="block">The
   <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Messager.html" title="class or interface in javax.annotation.processing" class="external-link"><code>Messager</code></a>
   that is used to report errors, warnings, and other notices.</div>
@@ -603,14 +603,14 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="m_Options">
 <h3>m_Options</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-169">m_Options</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-170">m_Options</a></span></div>
 <div class="block">The options for this annotation processor.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="m_TypeUtils">
 <h3>m_TypeUtils</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/util/Types.html" title="class or interface in javax.lang.model.util" class="external-link">Types</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-174">m_TypeUtils</a></span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/util/Types.html" title="class or interface in javax.lang.model.util" class="external-link">Types</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-175">m_TypeUtils</a></span></div>
 <div class="block">The implementation of some utility methods for operating on types.</div>
 </section>
 </li>
@@ -625,7 +625,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="&lt;init&gt;()">
 <h3>APBase</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-182">APBase</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-183">APBase</a></span>()</div>
 <div class="block">Creates a new <code>APBase</code> instance.</div>
 </section>
 </li>
@@ -640,7 +640,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="addDebugOutput()">
 <h3>addDebugOutput</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-190">addDebugOutput</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-191">addDebugOutput</a></span>()</div>
 <div class="block"><p>Returns the flag that indicates whether some debug
   information should be emitted to the generated code.</p>
   <p>The value is controlled by the value of the annotation processor
@@ -658,7 +658,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="composeMessage(java.lang.CharSequence)">
 <h3>composeMessage</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-199">composeMessage</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/CharSequence.html" title="class or interface in java.lang" class="external-link">CharSequence</a>&nbsp;msg)</span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-200">composeMessage</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/CharSequence.html" title="class or interface in java.lang" class="external-link">CharSequence</a>&nbsp;msg)</span></div>
 <div class="block">Adds the name of the annotation processor to the given message.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -671,7 +671,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="getCompletions(javax.lang.model.element.Element,javax.lang.model.element.AnnotationMirror,javax.lang.model.element.ExecutableElement,java.lang.String)">
 <h3>getCompletions</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Completion.html" title="class or interface in javax.annotation.processing" class="external-link">Completion</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-210">getCompletions</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/Element.html" title="class or interface in javax.lang.model.element" class="external-link">Element</a>&nbsp;element,
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Completion.html" title="class or interface in javax.annotation.processing" class="external-link">Completion</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-211">getCompletions</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/Element.html" title="class or interface in javax.lang.model.element" class="external-link">Element</a>&nbsp;element,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/AnnotationMirror.html" title="class or interface in javax.lang.model.element" class="external-link">AnnotationMirror</a>&nbsp;annotation,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/ExecutableElement.html" title="class or interface in javax.lang.model.element" class="external-link">ExecutableElement</a>&nbsp;member,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userText)</span></div>
@@ -684,7 +684,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="getElementUtils()">
 <h3>getElementUtils</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/util/Elements.html" title="class or interface in javax.lang.model.util" class="external-link">Elements</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-222">getElementUtils</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/util/Elements.html" title="class or interface in javax.lang.model.util" class="external-link">Elements</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-223">getElementUtils</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html#getElementUtils()" title="class or interface in javax.annotation.processing" class="external-link">getElementUtils</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html" title="class or interface in javax.annotation.processing" class="external-link">ProcessingEnvironment</a></code></dd>
@@ -694,7 +694,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="getFiler()">
 <h3>getFiler</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Filer.html" title="class or interface in javax.annotation.processing" class="external-link">Filer</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-228">getFiler</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Filer.html" title="class or interface in javax.annotation.processing" class="external-link">Filer</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-229">getFiler</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html#getFiler()" title="class or interface in javax.annotation.processing" class="external-link">getFiler</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html" title="class or interface in javax.annotation.processing" class="external-link">ProcessingEnvironment</a></code></dd>
@@ -704,7 +704,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="getLocale()">
 <h3>getLocale</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Locale.html" title="class or interface in java.util" class="external-link">Locale</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-234">getLocale</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Locale.html" title="class or interface in java.util" class="external-link">Locale</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-235">getLocale</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html#getLocale()" title="class or interface in javax.annotation.processing" class="external-link">getLocale</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html" title="class or interface in javax.annotation.processing" class="external-link">ProcessingEnvironment</a></code></dd>
@@ -714,7 +714,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="getMessager()">
 <h3>getMessager</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Messager.html" title="class or interface in javax.annotation.processing" class="external-link">Messager</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-240">getMessager</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Messager.html" title="class or interface in javax.annotation.processing" class="external-link">Messager</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-241">getMessager</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html#getMessager()" title="class or interface in javax.annotation.processing" class="external-link">getMessager</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html" title="class or interface in javax.annotation.processing" class="external-link">ProcessingEnvironment</a></code></dd>
@@ -724,7 +724,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="getOption(java.lang.String)">
 <h3>getOption</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-252">getOption</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;option)</span></div>
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-253">getOption</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;option)</span></div>
 <div class="block">Retrieves the option with the given name from the annotation processors
   startup options.</div>
 <dl class="notes">
@@ -740,7 +740,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="getOptions()">
 <h3>getOptions</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-263">getOptions</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-264">getOptions</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html#getOptions()" title="class or interface in javax.annotation.processing" class="external-link">getOptions</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html" title="class or interface in javax.annotation.processing" class="external-link">ProcessingEnvironment</a></code></dd>
@@ -750,7 +750,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="getSourceVersion()">
 <h3>getSourceVersion</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/SourceVersion.html" title="class or interface in javax.lang.model" class="external-link">SourceVersion</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-269">getSourceVersion</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/SourceVersion.html" title="class or interface in javax.lang.model" class="external-link">SourceVersion</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-270">getSourceVersion</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html#getSourceVersion()" title="class or interface in javax.annotation.processing" class="external-link">getSourceVersion</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html" title="class or interface in javax.annotation.processing" class="external-link">ProcessingEnvironment</a></code></dd>
@@ -760,7 +760,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="getSupportedAnnotationClasses()">
 <h3>getSupportedAnnotationClasses</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-277">getSupportedAnnotationClasses</a></span>()</div>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>&gt;&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-278">getSupportedAnnotationClasses</a></span>()</div>
 <div class="block">Returns the classes for the supported annotations.</div>
 <dl class="notes">
 <dt>Returns:</dt>
@@ -771,7 +771,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="getSupportedAnnotationTypes()">
 <h3>getSupportedAnnotationTypes</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-282">getSupportedAnnotationTypes</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-283">getSupportedAnnotationTypes</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Processor.html#getSupportedAnnotationTypes()" title="class or interface in javax.annotation.processing" class="external-link">getSupportedAnnotationTypes</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Processor.html" title="class or interface in javax.annotation.processing" class="external-link">Processor</a></code></dd>
@@ -781,7 +781,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="getSupportedOptions()">
 <h3>getSupportedOptions</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-297">getSupportedOptions</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-298">getSupportedOptions</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Processor.html#getSupportedOptions()" title="class or interface in javax.annotation.processing" class="external-link">getSupportedOptions</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Processor.html" title="class or interface in javax.annotation.processing" class="external-link">Processor</a></code></dd>
@@ -791,7 +791,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="getSupportedSourceVersion()">
 <h3>getSupportedSourceVersion</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/SourceVersion.html" title="class or interface in javax.lang.model" class="external-link">SourceVersion</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-310">getSupportedSourceVersion</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/SourceVersion.html" title="class or interface in javax.lang.model" class="external-link">SourceVersion</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-311">getSupportedSourceVersion</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Processor.html#getSupportedSourceVersion()" title="class or interface in javax.annotation.processing" class="external-link">getSupportedSourceVersion</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Processor.html" title="class or interface in javax.annotation.processing" class="external-link">Processor</a></code></dd>
@@ -801,7 +801,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="getTypeUtils()">
 <h3>getTypeUtils</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/util/Types.html" title="class or interface in javax.lang.model.util" class="external-link">Types</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-332">getTypeUtils</a></span>()</div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/util/Types.html" title="class or interface in javax.lang.model.util" class="external-link">Types</a></span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-333">getTypeUtils</a></span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html#getTypeUtils()" title="class or interface in javax.annotation.processing" class="external-link">getTypeUtils</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html" title="class or interface in javax.annotation.processing" class="external-link">ProcessingEnvironment</a></code></dd>
@@ -811,7 +811,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="init(javax.annotation.processing.ProcessingEnvironment)">
 <h3>init</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-338">init</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html" title="class or interface in javax.annotation.processing" class="external-link">ProcessingEnvironment</a>&nbsp;processingEnv)</span></div>
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-339">init</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/ProcessingEnvironment.html" title="class or interface in javax.annotation.processing" class="external-link">ProcessingEnvironment</a>&nbsp;processingEnv)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Processor.html#init(javax.annotation.processing.ProcessingEnvironment)" title="class or interface in javax.annotation.processing" class="external-link">init</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/Processor.html" title="class or interface in javax.annotation.processing" class="external-link">Processor</a></code></dd>
@@ -821,7 +821,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="printMessage(javax.tools.Diagnostic.Kind,java.lang.CharSequence)">
 <h3>printMessage</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-363">printMessage</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/tools/Diagnostic.Kind.html" title="class or interface in javax.tools" class="external-link">Diagnostic.Kind</a>&nbsp;kind,
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-364">printMessage</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/tools/Diagnostic.Kind.html" title="class or interface in javax.tools" class="external-link">Diagnostic.Kind</a>&nbsp;kind,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/CharSequence.html" title="class or interface in java.lang" class="external-link">CharSequence</a>&nbsp;msg)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -834,7 +834,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="printMessage(javax.tools.Diagnostic.Kind,java.lang.CharSequence,javax.lang.model.element.Element)">
 <h3>printMessage</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-377">printMessage</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/tools/Diagnostic.Kind.html" title="class or interface in javax.tools" class="external-link">Diagnostic.Kind</a>&nbsp;kind,
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-378">printMessage</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/tools/Diagnostic.Kind.html" title="class or interface in javax.tools" class="external-link">Diagnostic.Kind</a>&nbsp;kind,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/CharSequence.html" title="class or interface in java.lang" class="external-link">CharSequence</a>&nbsp;msg,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/Element.html" title="class or interface in javax.lang.model.element" class="external-link">Element</a>&nbsp;element)</span></div>
 <dl class="notes">
@@ -848,7 +848,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="printMessage(javax.tools.Diagnostic.Kind,java.lang.CharSequence,javax.lang.model.element.Element,javax.lang.model.element.AnnotationMirror)">
 <h3>printMessage</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-391">printMessage</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/tools/Diagnostic.Kind.html" title="class or interface in javax.tools" class="external-link">Diagnostic.Kind</a>&nbsp;kind,
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-392">printMessage</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/tools/Diagnostic.Kind.html" title="class or interface in javax.tools" class="external-link">Diagnostic.Kind</a>&nbsp;kind,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/CharSequence.html" title="class or interface in java.lang" class="external-link">CharSequence</a>&nbsp;msg,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/Element.html" title="class or interface in javax.lang.model.element" class="external-link">Element</a>&nbsp;element,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/AnnotationMirror.html" title="class or interface in javax.lang.model.element" class="external-link">AnnotationMirror</a>&nbsp;annotation)</span></div>
@@ -863,7 +863,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="printMessage(javax.tools.Diagnostic.Kind,java.lang.CharSequence,javax.lang.model.element.Element,javax.lang.model.element.AnnotationMirror,javax.lang.model.element.AnnotationValue)">
 <h3>printMessage</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-405">printMessage</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/tools/Diagnostic.Kind.html" title="class or interface in javax.tools" class="external-link">Diagnostic.Kind</a>&nbsp;kind,
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-406">printMessage</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/tools/Diagnostic.Kind.html" title="class or interface in javax.tools" class="external-link">Diagnostic.Kind</a>&nbsp;kind,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/CharSequence.html" title="class or interface in java.lang" class="external-link">CharSequence</a>&nbsp;msg,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/Element.html" title="class or interface in javax.lang.model.element" class="external-link">Element</a>&nbsp;element,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/AnnotationMirror.html" title="class or interface in javax.lang.model.element" class="external-link">AnnotationMirror</a>&nbsp;annotation,
@@ -879,7 +879,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 <li>
 <section class="detail" id="process(java.util.Set,javax.annotation.processing.RoundEnvironment)">
 <h3>process</h3>
-<div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-419">process</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/TypeElement.html" title="class or interface in javax.lang.model.element" class="external-link">TypeElement</a>&gt;&nbsp;annotations,
+<div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-420">process</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/TypeElement.html" title="class or interface in javax.lang.model.element" class="external-link">TypeElement</a>&gt;&nbsp;annotations,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/RoundEnvironment.html" title="class or interface in javax.annotation.processing" class="external-link">RoundEnvironment</a>&nbsp;roundEnvironment)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
@@ -888,17 +888,15 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
 </section>
 </li>
 <li>
-<section class="detail" id="retrieveAnnotatedField(java.util.Collection,javax.annotation.processing.RoundEnvironment,java.lang.Class)">
+<section class="detail" id="retrieveAnnotatedField(javax.annotation.processing.RoundEnvironment,java.lang.Class)">
 <h3>retrieveAnnotatedField</h3>
-<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/VariableElement.html" title="class or interface in javax.lang.model.element" class="external-link">VariableElement</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-437">retrieveAnnotatedField</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/TypeElement.html" title="class or interface in javax.lang.model.element" class="external-link">TypeElement</a>&gt;&nbsp;annotations,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/RoundEnvironment.html" title="class or interface in javax.annotation.processing" class="external-link">RoundEnvironment</a>&nbsp;roundEnvironment,
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/VariableElement.html" title="class or interface in javax.lang.model.element" class="external-link">VariableElement</a>&gt;</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-439">retrieveAnnotatedField</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/annotation/processing/RoundEnvironment.html" title="class or interface in javax.annotation.processing" class="external-link">RoundEnvironment</a>&nbsp;roundEnvironment,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/annotation/Annotation.html" title="class or interface in java.lang.annotation" class="external-link">Annotation</a>&gt;&nbsp;annotationClass)</span>
                                                           throws <span class="exceptions"><a href="IllegalAnnotationError.html" title="class in org.tquadrat.foundation.ap">IllegalAnnotationError</a></span></div>
-<div class="block">Retrieves the field that is annotated with the given annotation.</div>
+<div class="block"><p>Retrieves the field that is annotated with the given
+  annotation. The expectation is that there is just one</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>annotations</code> - The annotation, as set to
-      <a href="#process(java.util.Set,javax.annotation.processing.RoundEnvironment)"><code>process(Set, RoundEnvironment)</code></a>.</dd>
 <dd><code>roundEnvironment</code> - The environment for information about the
       current and prior round as set to
       <a href="#process(java.util.Set,javax.annotation.processing.RoundEnvironment)"><code>process(Set, RoundEnvironment)</code></a>.</dd>
@@ -909,13 +907,15 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.comp
       that holds the field.</dd>
 <dt>Throws:</dt>
 <dd><code><a href="IllegalAnnotationError.html" title="class in org.tquadrat.foundation.ap">IllegalAnnotationError</a></code> - The annotation is invalid.</dd>
+<dd><code><a href="CodeGenerationError.html" title="class in org.tquadrat.foundation.ap">CodeGenerationError</a></code> - Multiple fields are annotated with the
+      given annotation.</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="retrieveInterfaces(javax.lang.model.element.TypeElement,java.util.Set)">
 <h3>retrieveInterfaces</h3>
-<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-502">retrieveInterfaces</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/TypeElement.html" title="class or interface in javax.lang.model.element" class="external-link">TypeElement</a>&nbsp;typeElement,
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name"><a href="../../../../src-html/org/tquadrat/foundation/ap/APBase.html#line-506">retrieveInterfaces</a></span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/TypeElement.html" title="class or interface in javax.lang.model.element" class="external-link">TypeElement</a>&nbsp;typeElement,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;? super <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.compiler/javax/lang/model/element/TypeElement.html" title="class or interface in javax.lang.model.element" class="external-link">TypeElement</a>&gt;&nbsp;interfaces)</span></div>
 <div class="block">Retrieves the interfaces are that implemented or extended by the given
   type element.</div>
