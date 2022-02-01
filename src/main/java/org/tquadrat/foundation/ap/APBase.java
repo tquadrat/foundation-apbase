@@ -43,12 +43,17 @@ import javax.lang.model.element.AnnotationValue;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.ElementKind;
 import javax.lang.model.element.ExecutableElement;
+import javax.lang.model.element.Name;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.element.VariableElement;
+import javax.lang.model.type.DeclaredType;
+import javax.lang.model.type.TypeMirror;
 import javax.lang.model.util.Elements;
+import javax.lang.model.util.SimpleTypeVisitor14;
 import javax.lang.model.util.Types;
 import javax.tools.Diagnostic;
 import java.lang.annotation.Annotation;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
@@ -337,6 +342,20 @@ public abstract class APBase implements Processor, APHelper
      *  {@inheritDoc}
      */
     @Override
+    public final boolean isEnumType( final TypeMirror type )
+    {
+        final var enumType = m_TypeUtils.erasure( m_ElementUtils.getTypeElement( Enum.class.getName() ).asType() );
+        final var focusType = m_TypeUtils.erasure( requireNonNullArgument( type, "type" ) );
+        final var retValue = m_TypeUtils.isSubtype( focusType, enumType );
+
+        //---* Done *----------------------------------------------------------
+        return retValue;
+    }   //  isEnumType()
+
+    /**
+     *  {@inheritDoc}
+     */
+    @Override
     public final void init( final ProcessingEnvironment processingEnv )
     {
         //---* Keep the processing environment *-------------------------------
@@ -499,6 +518,50 @@ public abstract class APBase implements Processor, APHelper
         //---* Done *----------------------------------------------------------
         return retValue;
     }   //  retrieveAnnotatedField()
+
+    /**
+     *  {@inheritDoc}
+     */
+    @Override
+    public final List<Name> retrieveArgumentNames( final ExecutableElement method )
+    {
+        final var retValue = requireNonNullArgument( method, "method" ).getParameters()
+            .stream()
+            .map( VariableElement::getSimpleName )
+            .toList();
+
+        //---* Done *----------------------------------------------------------
+        return retValue;
+    }   //  retrieveArgumentNames()
+
+    /**
+     *  {@inheritDoc}
+     */
+    @Override
+    public List<TypeMirror> retrieveGenericTypes( final TypeMirror type )
+    {
+        final Collection<TypeMirror> buffer = new ArrayList<>();
+
+        //noinspection CollectionAddAllCanBeReplacedWithConstructor
+        buffer.addAll( type.accept( new SimpleTypeVisitor14<Collection<TypeMirror>, Void>( List.of() )
+        {
+            /**
+             *  {@inheritDoc}
+             */
+            @SuppressWarnings( "unchecked" )
+            @Override
+            public final Collection<TypeMirror> visitDeclared( final DeclaredType declaredType, final Void ignored )
+            {
+                return (Collection<TypeMirror>) declaredType.getTypeArguments();
+            }
+        }, null ) );
+
+        //---* Create the return value *---------------------------------------
+        final var retValue = List.copyOf( buffer );
+
+        //---* Done *----------------------------------------------------------
+        return retValue;
+    }   //  retrieveGenericTypes()
 
     /**
      *  {@inheritDoc}

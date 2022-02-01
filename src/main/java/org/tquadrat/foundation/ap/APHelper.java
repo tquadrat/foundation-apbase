@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- *  Copyright © 2002-2021 by Thomas Thrien.
+ *  Copyright © 2002-2022 by Thomas Thrien.
  *  All Rights Reserved.
  * ============================================================================
  *  Licensed to the public under the agreements of the GNU Lesser General Public
@@ -29,10 +29,13 @@ import javax.annotation.processing.ProcessingEnvironment;
 import javax.lang.model.element.AnnotationMirror;
 import javax.lang.model.element.AnnotationValue;
 import javax.lang.model.element.Element;
+import javax.lang.model.element.ExecutableElement;
+import javax.lang.model.element.Name;
 import javax.lang.model.element.TypeElement;
 import javax.lang.model.type.TypeMirror;
 import javax.tools.Diagnostic;
 import java.lang.annotation.Annotation;
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.Set;
@@ -67,6 +70,7 @@ public interface APHelper extends Messager, ProcessingEnvironment
      *  @return {@code true} if the debug information should be added,
      *      {@code false} if not.
      */
+    @SuppressWarnings( "BooleanMethodNameMustStartWithQuestion" )
     public boolean addDebugOutput();
 
     /**
@@ -261,6 +265,19 @@ public interface APHelper extends Messager, ProcessingEnvironment
     }   //  hasAnnotation()
 
     /**
+     *  Determines whether the given instance of
+     *  {@link TypeMirror}
+     *  is for an
+     *  {@link Enum}
+     *  type.
+     *
+     *  @param  type    The type to check.
+     *  @return {@code true} if the given type is an {@code Enum} type,
+     *      {@code false} otherwise.
+     */
+    public boolean isEnumType( final TypeMirror type );
+
+    /**
      *  {@inheritDoc}
      */
     @Override
@@ -295,6 +312,28 @@ public interface APHelper extends Messager, ProcessingEnvironment
     {
         getMessager().printMessage( kind, msg, element, annotation, value );
     }   //  printMessage()
+
+    /**
+     *  <p>{@summary Retrieves the names of a method's arguments.}</p>
+     *  <p>This method will return the names of the arguments as defined only
+     *  if the compiler flag {@code -parameters} is set; otherwise, the
+     *  arguments are just counted ({@code arg0}, {@code arg1}, {@code arg2},
+     *  …).</p>
+     *
+     *  @param  method  The method.
+     *  @return The names of the arguments.
+     */
+    public List<Name> retrieveArgumentNames( final ExecutableElement method );
+
+    /**
+     *  <p>{@summary Retrieves the generic types for the given type.}</p>
+     *
+     *  @param  type    The
+     *      {@link TypeMirror} instance to inspect.
+     *  @return The type arguments the given type was defined with; will be the
+     *      empty list if that type was not generic.
+     */
+    public List<? extends TypeMirror> retrieveGenericTypes( final TypeMirror type );
 
     /**
      *  Retrieves the interfaces are that implemented or extended by the given
