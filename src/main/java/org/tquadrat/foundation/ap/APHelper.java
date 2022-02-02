@@ -48,12 +48,12 @@ import org.tquadrat.foundation.annotation.ClassVersion;
  *  The specification for a set of helpers for annotation processing.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: APHelper.java 997 2022-01-26 14:55:05Z tquadrat $
+ *  @version $Id: APHelper.java 1002 2022-02-01 21:33:00Z tquadrat $
  *  @since 0.1.0
  *
  *  @UMLGraph.link
  */
-@ClassVersion( sourceVersion = "$Id: APHelper.java 997 2022-01-26 14:55:05Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: APHelper.java 1002 2022-02-01 21:33:00Z tquadrat $" )
 @API( status = STABLE, since = "0.1.0" )
 public interface APHelper extends Messager, ProcessingEnvironment
 {

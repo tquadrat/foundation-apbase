@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- *  Copyright © 2002-2021 by Thomas Thrien.
+ *  Copyright © 2002-2022 by Thomas Thrien.
  *  All Rights Reserved.
  * ============================================================================
  *  Licensed to the public under the agreements of the GNU Lesser General Public
@@ -69,12 +69,12 @@ import org.tquadrat.foundation.annotation.ClassVersion;
  *  Library.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: APBase.java 997 2022-01-26 14:55:05Z tquadrat $
+ *  @version $Id: APBase.java 1002 2022-02-01 21:33:00Z tquadrat $
  *  @since 0.1.0
  *
  *  @UMLGraph.link
  */
-@ClassVersion( sourceVersion = "$Id: APBase.java 997 2022-01-26 14:55:05Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: APBase.java 1002 2022-02-01 21:33:00Z tquadrat $" )
 @API( status = STABLE, since = "0.1.0" )
 public abstract class APBase implements Processor, APHelper
 {
