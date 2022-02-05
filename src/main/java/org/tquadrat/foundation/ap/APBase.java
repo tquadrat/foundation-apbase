@@ -69,12 +69,12 @@ import org.tquadrat.foundation.annotation.ClassVersion;
  *  Library.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: APBase.java 1002 2022-02-01 21:33:00Z tquadrat $
+ *  @version $Id: APBase.java 1005 2022-02-03 12:40:52Z tquadrat $
  *  @since 0.1.0
  *
  *  @UMLGraph.link
  */
-@ClassVersion( sourceVersion = "$Id: APBase.java 1002 2022-02-01 21:33:00Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: APBase.java 1005 2022-02-03 12:40:52Z tquadrat $" )
 @API( status = STABLE, since = "0.1.0" )
 public abstract class APBase implements Processor, APHelper
 {
@@ -347,6 +347,7 @@ public abstract class APBase implements Processor, APHelper
         final var enumType = m_TypeUtils.erasure( m_ElementUtils.getTypeElement( Enum.class.getName() ).asType() );
         final var focusType = m_TypeUtils.erasure( requireNonNullArgument( type, "type" ) );
         final var retValue = m_TypeUtils.isSubtype( focusType, enumType );
+        ifDebug( "type: %1$s%n\tenumType: %2$s%n\tfocusType: %3$s%n\tisEnumType: %4$b"::formatted, type, enumType, focusType, retValue );
 
         //---* Done *----------------------------------------------------------
         return retValue;
