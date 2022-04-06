@@ -48,12 +48,12 @@ import org.tquadrat.foundation.annotation.ClassVersion;
  *  The specification for a set of helpers for annotation processing.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: APHelper.java 1002 2022-02-01 21:33:00Z tquadrat $
+ *  @version $Id: APHelper.java 1030 2022-04-06 13:42:02Z tquadrat $
  *  @since 0.1.0
  *
  *  @UMLGraph.link
  */
-@ClassVersion( sourceVersion = "$Id: APHelper.java 1002 2022-02-01 21:33:00Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: APHelper.java 1030 2022-04-06 13:42:02Z tquadrat $" )
 @API( status = STABLE, since = "0.1.0" )
 public interface APHelper extends Messager, ProcessingEnvironment
 {
@@ -90,6 +90,7 @@ public interface APHelper extends Messager, ProcessingEnvironment
      *
      *  @see Element#getAnnotationMirrors()
      */
+    @SuppressWarnings( "OverlyLongLambda" )
     public default Optional<? extends AnnotationMirror> getAnnotationMirror( final Element element, final Class<? extends Annotation> annotationClass )
     {
         final var isProxyClass = isProxyClass( requireNonNullArgument( annotationClass, "annotationClass" ) );
@@ -184,7 +185,7 @@ public interface APHelper extends Messager, ProcessingEnvironment
      *  we need some special code to get something useful from the
      *  annotation.</p>
      *  <p>This implementations assumes the default name
-     *  &quot;<code>value</code>&quot; for the attribute.</p>
+     *  &quot;{@code value}&quot; for the attribute.</p>
      *
      *  @param  element The annotated element.
      *  @param  annotationClass The type of the annotation.

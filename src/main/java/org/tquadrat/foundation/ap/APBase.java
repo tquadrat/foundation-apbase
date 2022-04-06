@@ -69,12 +69,13 @@ import org.tquadrat.foundation.annotation.ClassVersion;
  *  Library.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: APBase.java 1005 2022-02-03 12:40:52Z tquadrat $
+ *  @version $Id: APBase.java 1030 2022-04-06 13:42:02Z tquadrat $
  *  @since 0.1.0
  *
  *  @UMLGraph.link
  */
-@ClassVersion( sourceVersion = "$Id: APBase.java 1005 2022-02-03 12:40:52Z tquadrat $" )
+@SuppressWarnings( "UseOfSystemOutOrSystemErr" )
+@ClassVersion( sourceVersion = "$Id: APBase.java 1030 2022-04-06 13:42:02Z tquadrat $" )
 @API( status = STABLE, since = "0.1.0" )
 public abstract class APBase implements Processor, APHelper
 {
@@ -437,7 +438,6 @@ public abstract class APBase implements Processor, APHelper
     /**
      *  {@inheritDoc}
      */
-    @SuppressWarnings( "AbstractMethodOverridesAbstractMethod" )
     @Override
     public abstract boolean process( final Set<? extends TypeElement> annotations, final RoundEnvironment roundEnvironment );
 
@@ -538,6 +538,7 @@ public abstract class APBase implements Processor, APHelper
     /**
      *  {@inheritDoc}
      */
+    @SuppressWarnings( {"AnonymousInnerClassMayBeStatic", "AnonymousInnerClass"} )
     @Override
     public List<TypeMirror> retrieveGenericTypes( final TypeMirror type )
     {
