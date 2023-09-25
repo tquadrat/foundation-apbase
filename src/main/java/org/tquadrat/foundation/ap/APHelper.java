@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- *  Copyright © 2002-2022 by Thomas Thrien.
+ *  Copyright © 2002-2023 by Thomas Thrien.
  *  All Rights Reserved.
  * ============================================================================
  *  Licensed to the public under the agreements of the GNU Lesser General Public
@@ -22,7 +22,6 @@ import static org.apiguardian.api.API.Status.STABLE;
 import static org.tquadrat.foundation.lang.CommonConstants.EMPTY_STRING;
 import static org.tquadrat.foundation.lang.DebugOutput.ifDebug;
 import static org.tquadrat.foundation.lang.Objects.requireNonNullArgument;
-import static org.tquadrat.foundation.util.StringUtils.format;
 
 import javax.annotation.processing.Messager;
 import javax.annotation.processing.ProcessingEnvironment;
@@ -90,7 +89,6 @@ public interface APHelper extends Messager, ProcessingEnvironment
      *
      *  @see Element#getAnnotationMirrors()
      */
-    @SuppressWarnings( "OverlyLongLambda" )
     public default Optional<? extends AnnotationMirror> getAnnotationMirror( final Element element, final Class<? extends Annotation> annotationClass )
     {
         final var isProxyClass = isProxyClass( requireNonNullArgument( annotationClass, "annotationClass" ) );
@@ -99,18 +97,18 @@ public interface APHelper extends Messager, ProcessingEnvironment
         if( isProxyClass )
         {
             final var interfaces = annotationClass.getInterfaces();
-            ifDebug( interfaces.length > 1, i ->
+            ifDebug( interfaces.length > 1, currentInterfaces ->
             {
                 final var joiner = new StringJoiner( ", ", "annotation interface: ", EMPTY_STRING );
                 //noinspection SuspiciousArrayCast
-                for( final var c : ((Class<?> []) i) )
+                for( final var currentInterface : ((Class<?> []) currentInterfaces) )
                 {
-                    joiner.add( c.getName() );
+                    joiner.add( currentInterface.getName() );
                 }
                 return joiner.toString();
             }, (Object []) interfaces );
             if( interfaces.length != 1 )
-                throw new AnnotationProcessingError( format( "annotationClass proxy '%s' implements more than one interface" ) );
+                throw new AnnotationProcessingError( "annotationClass proxy '%s' implements more than one interface".formatted( annotationClass.getName() ) );
             annotationClassName = interfaces [0].getName();
         }
         else
@@ -119,7 +117,7 @@ public interface APHelper extends Messager, ProcessingEnvironment
         }
         ifDebug( "effective annotationClassName = %s"::formatted, annotationClassName );
         final var retValue = requireNonNullArgument( element, "element" ).getAnnotationMirrors().stream()
-            .filter( m -> m.getAnnotationType().toString().equals( annotationClassName ) )
+            .filter( annotationMirror -> annotationMirror.getAnnotationType().toString().equals( annotationClassName ) )
             .findFirst();
         ifDebug( retValue.isEmpty(), e ->
         {
@@ -166,7 +164,7 @@ public interface APHelper extends Messager, ProcessingEnvironment
         final var elementValues = getElementUtils().getElementValuesWithDefaults( annotationMirror );
         @SuppressWarnings( "unlikely-arg-type" )
         final var retValue = elementValues.keySet().stream()
-            .filter( k -> k.getSimpleName().toString().equals( name ) )
+            .filter( executableElement -> executableElement.getSimpleName().toString().equals( name ) )
             .map( elementValues::get )
             .findAny();
 

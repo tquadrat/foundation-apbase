@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- *  Copyright © 2002-2022 by Thomas Thrien.
+ *  Copyright © 2002-2023 by Thomas Thrien.
  *  All Rights Reserved.
  * ============================================================================
  *  Licensed to the public under the agreements of the GNU Lesser General Public
@@ -17,6 +17,7 @@
 
 package org.tquadrat.foundation.ap;
 
+import static java.lang.String.format;
 import static java.lang.System.out;
 import static java.util.stream.Collectors.toSet;
 import static javax.tools.Diagnostic.Kind.ERROR;
@@ -27,7 +28,6 @@ import static org.tquadrat.foundation.lang.DebugOutput.ifDebug;
 import static org.tquadrat.foundation.lang.Objects.isNull;
 import static org.tquadrat.foundation.lang.Objects.requireNonNullArgument;
 import static org.tquadrat.foundation.lang.Objects.requireNotEmptyArgument;
-import static org.tquadrat.foundation.util.StringUtils.format;
 
 import javax.annotation.processing.Completion;
 import javax.annotation.processing.Filer;
@@ -322,7 +322,7 @@ public abstract class APBase implements Processor, APHelper
         if( isNull( annotation ) )
         {
             retValue = SourceVersion.RELEASE_15;
-            printMessage( WARNING, format( "No SupportedSourceVersion annotation found on '%s', returning '%s'.", getClass().getName(), retValue.toString() ) );
+            printMessage( WARNING, "No SupportedSourceVersion annotation found on '%s', returning '%s'.".formatted( getClass().getName(), retValue.toString() ) );
         }
         else
         {
@@ -372,10 +372,10 @@ public abstract class APBase implements Processor, APHelper
         m_AddDebugOutput = m_Options.containsKey( ADD_DEBUG_OUTPUT );
 
         printMessage( NOTE, "Annotation Processor invoked!" );
-        printMessage( NOTE, format( "Class: %s", getClass().getName() ) );
+        printMessage( NOTE, "Class: %s".formatted( getClass().getName() ) );
         for( final var option : m_Options.entrySet() )
         {
-            printMessage( NOTE, format( "Option: %s=%s", option.getKey(), option.getValue() ) );
+            printMessage( NOTE, "Option: %s=%s".formatted( option.getKey(), option.getValue() ) );
         }
     }   //  init()
 
@@ -389,7 +389,7 @@ public abstract class APBase implements Processor, APHelper
         m_Messager.printMessage( kind, message );
         if( m_IsMavenActive )
         {
-            out.println( format( "[%s] %s", kind.name(), message ) );
+            out.printf( "[%s] %s%n", kind.name(), message );
         }
     }   //  printMessage()
 
@@ -403,7 +403,7 @@ public abstract class APBase implements Processor, APHelper
         m_Messager.printMessage( kind, message, element );
         if( m_IsMavenActive )
         {
-            out.println( format( "[%s] %s (Element: %s)", kind.name(), message, element.getSimpleName() ) );
+            out.printf( "[%s] %s (Element: %s)%n", kind.name(), message, element.getSimpleName() );
         }
     }   //  printMessage()
 
@@ -417,7 +417,7 @@ public abstract class APBase implements Processor, APHelper
         m_Messager.printMessage( kind, message, element, annotation );
         if( m_IsMavenActive )
         {
-            out.println( format( "[%s] %s (Element: %s/Annotation: %s)", kind.name(), message, element.getSimpleName(), annotation.getAnnotationType().asElement().getSimpleName() ) );
+            out.printf( "[%s] %s (Element: %s/Annotation: %s)%n", kind.name(), message, element.getSimpleName(), annotation.getAnnotationType().asElement().getSimpleName() );
         }
     }   //  printMessage()
 
@@ -431,7 +431,7 @@ public abstract class APBase implements Processor, APHelper
         m_Messager.printMessage( kind, message, element, annotation, value );
         if( m_IsMavenActive )
         {
-            out.println( format( "[%s] %s (Element: %s/Annotation: %s = %s)", kind.name(), message, element.getSimpleName(), annotation.getAnnotationType().asElement().getSimpleName(), value.toString() ) );
+            out.printf( "[%s] %s (Element: %s/Annotation: %s = %s)%n", kind.name(), message, element.getSimpleName(), annotation.getAnnotationType().asElement().getSimpleName(), value.toString() );
         }
     }   //  printMessage()
 
@@ -459,16 +459,16 @@ public abstract class APBase implements Processor, APHelper
     protected final Optional<VariableElement> retrieveAnnotatedField( final RoundEnvironment roundEnvironment, final Class<? extends Annotation> annotationClass ) throws IllegalAnnotationError
     {
         requireNonNullArgument( annotationClass, "annotationClass" );
-        ifDebug( c -> "annotationClass: %s".formatted( ((Class<?>) c [0]).getName() ), annotationClass );
+        ifDebug( currentClass -> "annotationClass: %s".formatted( ((Class<?>) currentClass [0]).getName() ), annotationClass );
         Optional<VariableElement> retValue = Optional.empty();
         String errorMessage = null;
 
-        ifDebug( c -> "annotationClass '%s' is in annotations".formatted( ((Class<?>) c [0]).getName() ), annotationClass );
+        ifDebug( currentClass -> "annotationClass '%s' is in annotations".formatted( ((Class<?>) currentClass [0]).getName() ), annotationClass );
         VariableElement lastElement = null;
         var isInError = false;
         ScanLoop: for( final var element : requireNonNullArgument( roundEnvironment, "roundEnvironment" ).getElementsAnnotatedWith( annotationClass ) )
         {
-            if( element instanceof VariableElement variableElement )
+            if( element instanceof final VariableElement variableElement )
             {
                 if( variableElement.getKind() == ElementKind.FIELD )
                 {

@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- *  Copyright © 2002-2021 by Thomas Thrien.
+ *  Copyright © 2002-2023 by Thomas Thrien.
  *  All Rights Reserved.
  * ============================================================================
  *  Licensed to the public under the agreements of the GNU Lesser General Public
@@ -19,7 +19,6 @@ package org.tquadrat.foundation.ap;
 
 import static org.apiguardian.api.API.Status.STABLE;
 import static org.tquadrat.foundation.lang.Objects.requireNonNullArgument;
-import static org.tquadrat.foundation.util.StringUtils.format;
 
 import java.io.Serial;
 import java.lang.annotation.Annotation;
@@ -78,7 +77,7 @@ public final class IllegalAnnotationError extends AnnotationProcessingError
      */
     public IllegalAnnotationError( final Class<? extends Annotation> annotationClass )
     {
-        this( format( "Annotation '%s' is illegal", requireNonNullArgument( annotationClass, "annotationClass" ).getName() ) );
+        this( "Annotation '%s' is illegal".formatted( requireNonNullArgument( annotationClass, "annotationClass" ).getName() ) );
     }   //  IllegalAnnotationError()
 
     /**
@@ -101,7 +100,7 @@ public final class IllegalAnnotationError extends AnnotationProcessingError
      */
     public IllegalAnnotationError( final String message, final Class<? extends Annotation> annotationClass )
     {
-        this( format( "Annotation '%s' is illegal: %s", requireNonNullArgument( annotationClass, "annotationClass" ).getName(), requireNonNullArgument( message, "message" ) ) );
+        this( "Annotation '%s' is illegal: %s".formatted( requireNonNullArgument( annotationClass, "annotationClass" ).getName(), requireNonNullArgument( message, "message" ) ) );
     }   //  IllegalAnnotationError()
 
     /**
