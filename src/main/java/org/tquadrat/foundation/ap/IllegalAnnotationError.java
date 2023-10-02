@@ -30,13 +30,13 @@ import org.tquadrat.foundation.annotation.ClassVersion;
  *  Signals an incorrect use of an annotations.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: IllegalAnnotationError.java 920 2021-05-23 14:27:24Z tquadrat $
+ *  @version $Id: IllegalAnnotationError.java 1061 2023-09-25 16:32:43Z tquadrat $
  *  @since 0.1.0
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( "ClassWithTooManyConstructors" )
-@ClassVersion( sourceVersion = "$Id: IllegalAnnotationError.java 920 2021-05-23 14:27:24Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: IllegalAnnotationError.java 1061 2023-09-25 16:32:43Z tquadrat $" )
 @API( status = STABLE, since = "0.1.0" )
 public final class IllegalAnnotationError extends AnnotationProcessingError
 {

@@ -69,13 +69,13 @@ import org.tquadrat.foundation.annotation.ClassVersion;
  *  Library.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: APBase.java 1030 2022-04-06 13:42:02Z tquadrat $
+ *  @version $Id: APBase.java 1061 2023-09-25 16:32:43Z tquadrat $
  *  @since 0.1.0
  *
  *  @UMLGraph.link
  */
 @SuppressWarnings( "UseOfSystemOutOrSystemErr" )
-@ClassVersion( sourceVersion = "$Id: APBase.java 1030 2022-04-06 13:42:02Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: APBase.java 1061 2023-09-25 16:32:43Z tquadrat $" )
 @API( status = STABLE, since = "0.1.0" )
 public abstract class APBase implements Processor, APHelper
 {
