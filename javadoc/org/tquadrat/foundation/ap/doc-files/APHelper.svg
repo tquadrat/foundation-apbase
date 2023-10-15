@@ -7,7 +7,7 @@
      version='1.1'
      baseProfile='full'
      width='1770.000'
-     height='1229.000'>
+     height='1251.000'>
     <defs>
         <style><![CDATA[
             line
@@ -305,7 +305,7 @@
         </symbol>
         <clipPath id='ID000003'>
             <rect class='externalClass'
-                  height='95.000'
+                  height='161.000'
                   width='1282.000'
                   x='0.000'
                   y='0.000'/>
@@ -316,7 +316,7 @@
                     <rect x='0.000'
                           y='0.000'
                           width='1282.000'
-                          height='95.000'
+                          height='161.000'
                           class='externalClass'/>
                     <line x1='0.000'
                           y1='28.000'
@@ -348,6 +348,18 @@
                     <text x='5.000'
                           y='91.000'
                           class='abstract'>+ printMessage(arg0:javax.tools.Diagnostic.Kind,arg1:java.lang.CharSequence,arg2:javax.lang.model.element.Element,arg3:javax.lang.model.element.AnnotationMirror,arg4:javax.lang.model.element.AnnotationValue):void</text>
+                    <text x='5.000'
+                          y='102.000'>&#x2A22; printError(arg0:java.lang.CharSequence):void</text>
+                    <text x='5.000'
+                          y='113.000'>&#x2A22; printError(arg0:java.lang.CharSequence,arg1:javax.lang.model.element.Element):void</text>
+                    <text x='5.000'
+                          y='124.000'>&#x2A22; printWarning(arg0:java.lang.CharSequence):void</text>
+                    <text x='5.000'
+                          y='135.000'>&#x2A22; printWarning(arg0:java.lang.CharSequence,arg1:javax.lang.model.element.Element):void</text>
+                    <text x='5.000'
+                          y='146.000'>&#x2A22; printNote(arg0:java.lang.CharSequence):void</text>
+                    <text x='5.000'
+                          y='157.000'>&#x2A22; printNote(arg0:java.lang.CharSequence,arg1:javax.lang.model.element.Element):void</text>
                 </g>
             </g>
         </symbol>
@@ -412,13 +424,13 @@
         </symbol>
     </defs>
     <path class='implementation'
-          d='M885.000,580.000 L885.000,480.000'
+          d='M885.000,602.000 L885.000,502.000'
           marker-end='url(#implementation)'/>
     <path class='inheritance'
-          d='M860.000,264.000 c0.000,-129.000,-194.000,0.000,-194.000,-129.000 v-15'
+          d='M860.000,286.000 c0.000,-85.000,-194.000,0.000,-194.000,-85.000 v-15'
           marker-end='url(#inheritance)'/>
     <path class='inheritance'
-          d='M910.000,264.000 c0.000,-85.000,641.000,0.000,641.000,-85.000 v-15'
+          d='M910.000,286.000 c0.000,-107.000,641.000,0.000,641.000,-107.000 v-15'
           marker-end='url(#inheritance)'/>
     <use x='25.000'
          y='25.000'
@@ -427,9 +439,9 @@
          y='25.000'
          xlink:href='#javax.annotation.processing.ProcessingEnvironment'/>
     <use x='175.000'
-         y='264.000'
+         y='286.000'
          xlink:href='#org.tquadrat.foundation.ap.APHelper'/>
     <use x='112.000'
-         y='580.000'
+         y='602.000'
          xlink:href='#org.tquadrat.foundation.ap.APBase'/>
 </svg>
