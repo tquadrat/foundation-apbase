@@ -1,6 +1,6 @@
 /*
  * ============================================================================
- *  Copyright © 2002-2023 by Thomas Thrien.
+ *  Copyright © 2002-2025 by Thomas Thrien.
  *  All Rights Reserved.
  * ============================================================================
  *  Licensed to the public under the agreements of the GNU Lesser General Public
@@ -47,12 +47,12 @@ import org.tquadrat.foundation.annotation.ClassVersion;
  *  The specification for a set of helpers for annotation processing.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: APHelper.java 1061 2023-09-25 16:32:43Z tquadrat $
+ *  @version $Id: APHelper.java 1151 2025-10-01 21:32:15Z tquadrat $
  *  @since 0.1.0
  *
  *  @UMLGraph.link
  */
-@ClassVersion( sourceVersion = "$Id: APHelper.java 1061 2023-09-25 16:32:43Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: APHelper.java 1151 2025-10-01 21:32:15Z tquadrat $" )
 @API( status = STABLE, since = "0.1.0" )
 public interface APHelper extends Messager, ProcessingEnvironment
 {
@@ -182,7 +182,7 @@ public interface APHelper extends Messager, ProcessingEnvironment
      *  something strange, but never an instance of {@code Class<?>}. So
      *  we need some special code to get something useful from the
      *  annotation.</p>
-     *  <p>This implementations assumes the default name
+     *  <p>This implementation assumes the default name
      *  &quot;{@code value}&quot; for the attribute.</p>
      *
      *  @param  element The annotated element.
