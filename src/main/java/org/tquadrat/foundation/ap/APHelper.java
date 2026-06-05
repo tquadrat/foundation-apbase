@@ -47,12 +47,12 @@ import org.tquadrat.foundation.annotation.ClassVersion;
  *  The specification for a set of helpers for annotation processing.
  *
  *  @extauthor Thomas Thrien - thomas.thrien@tquadrat.org
- *  @version $Id: APHelper.java 1151 2025-10-01 21:32:15Z tquadrat $
+ *  @version $Id: APHelper.java 1258 2026-06-04 18:33:06Z tquadrat $
  *  @since 0.1.0
  *
  *  @UMLGraph.link
  */
-@ClassVersion( sourceVersion = "$Id: APHelper.java 1151 2025-10-01 21:32:15Z tquadrat $" )
+@ClassVersion( sourceVersion = "$Id: APHelper.java 1258 2026-06-04 18:33:06Z tquadrat $" )
 @API( status = STABLE, since = "0.1.0" )
 public interface APHelper extends Messager, ProcessingEnvironment
 {
@@ -66,8 +66,8 @@ public interface APHelper extends Messager, ProcessingEnvironment
      *  option
      *  {@value APBase#ADD_DEBUG_OUTPUT}.</p>
      *
-     *  @return {@code true} if the debug information should be added,
-     *      {@code false} if not.
+     *  @return {@true} if the debug information should be added,
+     *      {@false} if not.
      */
     @SuppressWarnings( "BooleanMethodNameMustStartWithQuestion" )
     public boolean addDebugOutput();
@@ -178,7 +178,7 @@ public interface APHelper extends Messager, ProcessingEnvironment
      *  instance from an annotation.}</p>
      *  <p>In case an annotation defines a
      *  {@link Class Class&lt;?&gt;}
-     *  attribute, the value for that attribute is either {@code null} or
+     *  attribute, the value for that attribute is either {@null} or
      *  something strange, but never an instance of {@code Class<?>}. So
      *  we need some special code to get something useful from the
      *  annotation.</p>
@@ -212,7 +212,7 @@ public interface APHelper extends Messager, ProcessingEnvironment
      *  instance from an annotation.}</p>
      *  <p>In case an annotation defines a
      *  {@link Class Class&lt;?&gt;}
-     *  attribute, the value for that attribute is either {@code null} or
+     *  attribute, the value for that attribute is either {@null} or
      *  something strange, but never an instance of {@code Class<?>}. So we
      *  need some special code to get something useful from the annotation.</p>
      *
@@ -249,8 +249,8 @@ public interface APHelper extends Messager, ProcessingEnvironment
      *  @param  <A> The type of the annotation.
      *  @param  element The element to inspect.
      *  @param  annotationType  The type of the annotation to look for.
-     *  @return {@code true} if the element is annotated with the given
-     *      annotation, {@code false} if not.
+     *  @return {@true} if the element is annotated with the given
+     *      annotation, {@false} if not.
      *
      *  @see java.lang.annotation.RetentionPolicy#RUNTIME
      */
@@ -271,8 +271,8 @@ public interface APHelper extends Messager, ProcessingEnvironment
      *  type.
      *
      *  @param  type    The type to check.
-     *  @return {@code true} if the given type is an {@code Enum} type,
-     *      {@code false} otherwise.
+     *  @return {@true} if the given type is an {@code Enum} type,
+     *      {@false} otherwise.
      */
     public boolean isEnumType( final TypeMirror type );
 

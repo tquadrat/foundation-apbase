@@ -8,8 +8,8 @@ The base for my annotation processors.
     <dependency>
       <groupId>org.tquadrat.library</groupId>
       <artifactId>org.tquadrat.foundation.apbase</artifactId>
-      <version>0.25.11</version>
+      <version>0.25.12</version>
     </dependency>
     ```
 ---  
-Last updated: 2026-05-27T21:09:13.862937943+02:00[Europe/Berlin]  
+Last updated: 2026-06-05T22:55:57.149700604+02:00[Europe/Berlin]  
