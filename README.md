@@ -12,4 +12,4 @@ The base for my annotation processors.
     </dependency>
     ```
 ---  
-Last updated: 2026-06-05T22:55:57.149700604+02:00[Europe/Berlin]  
+Last updated: 2026-09-09T11:34:06.004339588+02:00[Europe/Berlin]  
